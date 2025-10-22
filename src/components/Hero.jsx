@@ -1,27 +1,52 @@
-import React from 'react'
+import React from 'react';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <div className='flex items-center justify-center '>
-        <div className='block'>
-            <div className='block'>
-                <h1 className='text-[#FFE8CC] text-[42px] lg:text-[60px] font-teko font-bold mt-32 text-center px-10'>ZVOL SI SOWEPRO A VYSTUP Z DAVU</h1>
-                <p className='text-[#FFE8CC] text-[18px] lg:text-[20px] font-teko mt-40 text-center px-10'>Váše značka je hlavní hvězda a my mu dodáme příběh.</p>
-                <p className='text-[#FFE8CC] text-[18px] lg:text-[px] font-teko mt-10 lg:mt-0 text-center px-10'>Tvoříme videa, weby a fotky, které pomůžou Vaší firmě vystoupit z davu konkurence.</p>
-            </div>
+    <section
+      id="home"
+      className="relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-24 md:pt-32 overflow-hidden bg-[#142538]"
+    >
+      {/* Jemný světelný přechod v pozadí */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#142538]/60 to-[#0f1a28] pointer-events-none" />
 
-            <div className="flex justify-center items-center">
-                <button className="relative overflow-hidden mt-32 font-teko px-4 py-6 text-xl rounded-3xl transition-all duration-500 ease-in-out group hover:shadow-[4px_4px_5px_2px_#D1A45F]">
-                    <span className="relative z-10 transition-colors duration-500 ease-in-out text-[#0f1f33] group-hover:text-[#5E8F8B]">
-                        VOLÍM SI SOWEPRO
-                    </span>
-                    <span className="absolute inset-0 rounded-3xl bg-[linear-gradient(90deg,#D1A45F_0%,#A28556_50%,#D1A45F_100%)] transition-opacity duration-500 ease-in-out opacity-100 group-hover:opacity-0"></span>
-                    <span className="absolute inset-0 rounded-3xl bg-[#142538] transition-opacity duration-500 ease-in-out opacity-0 group-hover:opacity-100"></span>
-                </button>
-            </div>
-        </div>
-    </div>
-  )
-}
+      {/* Dekorativní světelný kruh */}
+      <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[#D1A45F]/10 rounded-full blur-3xl" />
 
-export default Hero
+      <motion.div
+        className="relative z-10 max-w-3xl mx-auto text-[#FFE8CC]"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.2, ease: 'easeOut' }}
+      >
+        <h1 className="text-5xl md:text-6xl font-teko font-semibold tracking-wide mb-12 leading-tight">
+          ZVOL SI <span className="text-[#D1A45F]">SOWEPRO</span> A VYSTUP Z DAVU
+        </h1>
+        <p className="text-sm md:text-md text-[#FFE8CC]/80 max-w-2xl mx-auto mb-16">
+          Váše značka je hlavní hvězda a my mu dodáme příběh. <br/>
+          Tvoříme videa, weby a fotky, které pomůžou Vaší firmě vystoupit z davu konkurence.
+        </p>
+
+        <motion.a
+          href="#services"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.98 }}
+          className="inline-block bg-gradient-to-r from-[#D1A45F] to-[#A28556] text-[#142538] font-semibold tracking-wide px-8 py-3 rounded-md shadow-lg hover:opacity-90 transition-all duration-300"
+        >
+          Naše služby
+        </motion.a>
+      </motion.div>
+
+      {/* Jemná pohyblivá animace v pozadí */}
+      <motion.div
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[#D1A45F]/60 text-sm"
+        animate={{ y: [0, 8, 0] }}
+        transition={{ repeat: Infinity, duration: 2 }}
+      >
+        ↓ Posuňte se níže
+      </motion.div>
+    </section>
+  );
+};
+
+export default Hero;

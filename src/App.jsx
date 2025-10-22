@@ -11,7 +11,7 @@ import Footer from './components/Footer'
 const App = () => {
   return (
     <>
-      <div className='min-h-screen bg-[#142538] overflow-x-hidden'>
+      <div className='min-h-screen bg-[#0f1a28] overflow-x-hidden'>
         <Navbar />
         <Hero />
         <About />

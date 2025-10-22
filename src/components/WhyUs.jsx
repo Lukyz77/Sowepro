@@ -1,63 +1,77 @@
-import React from 'react'
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ShieldCheck, Goal, Users, Sparkles } from 'lucide-react';
 
 const WhyUs = () => {
+  const reasons = [
+    {
+      icon: <Goal size={36} />,
+      title: 'Cíl a klient',
+      text: 'Náš cíl je výsledek, netočíme trendy, točíme video podle toho, co je cílem klienta',
+    },
+    {
+      icon: <Users size={36} />,
+      title: 'Individuální přístup',
+      text: 'Ke každému klientovi přistupujeme osobně. Nasloucháme vašim potřebám a společně hledáme ideální řešení.',
+    },
+    {
+      icon: <Sparkles size={36} />,
+      title: 'Moderní technologie',
+      text: 'Pracujeme s moderními techonlogiemi pro maximální kvalitu našich služeb.',
+    },
+  ];
+
+
   return (
-    <div>
-        <h1 className='text-[#FFE8CC] text-[38px] lg:text-[44px] font-teko font-bold mt-52 text-center px-10'>PROČ SI VYBRAT NÁS</h1>
+    <section
+      id="whyus"
+      className="relative bg-[#0f1a28] text-[#FFE8CC] py-20 md:py-28 px-6 overflow-hidden"
+    >
+      <div className="max-w-7xl mx-auto text-center mb-14">
+        <motion.h2
+          className="text-4xl md:text-5xl font-teko font-semibold mb-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          Proč <span className="text-[#D1A45F]">Sowepro</span>?
+        </motion.h2>
+        <motion.p
+          className="text-[#FFE8CC]/70 max-w-2xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          viewport={{ once: true }}
+        >
+          Naše práce stojí na zkušenostech, inovacích a spolehlivém přístupu.
+          Vaše spokojenost je pro nás prioritou.
+        </motion.p>
+      </div>
 
-        <div>
-            <div className='flex flex-col lg:flex-row lg:justify-around mt-24 justfiy-center items-center'>
-                <div className='relative shadow-[0px_4px_5px_2px_#D1A45F] rounded-xl mt-10 lg:space-y-0 px-4 mx-10 overflow-hidden group'>
+      {/* Tři výhody */}
+      <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 mb-20">
+        {reasons.map((item, index) => (
+          <motion.div
+            key={index}
+            className="bg-[#142538] border border-[#D1A45F]/20 rounded-2xl p-8 text-left hover:shadow-[#D1A45F]/10 hover:-translate-y-1 transition-all duration-300"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: index * 0.15 }}
+            viewport={{ once: true }}
+          >
+            <div className="text-[#D1A45F] mb-5">{item.icon}</div>
+            <h3 className="text-2xl font-teko font-semibold mb-3">
+              {item.title}
+            </h3>
+            <p className="text-[#FFE8CC]/70 leading-relaxed">{item.text}</p>
+          </motion.div>
+        ))}
+      </div>
 
-                    <div className="absolute inset-0 bg-[linear-gradient(180deg,#142538_0%,#444542_25%,#73654C_50%,#A28556_75%,#D1A45F_100%)]
-                        opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100"></div>
 
-                    <p className='relative z-10 text-[#FFE8CC] text-[18px] lg:text-[24px] leading-[3] font-teko text-left p-6'>NÁŠ CÍL JE VÝSLEDEK, NETOČÍME TRENDY, TOČÍME PODLE TOHO, CO JE CÍLEM KLIENTA</p>
-                </div>
+    </section>
+  );
+};
 
-                <div className='relative shadow-[0px_4px_5px_2px_#D1A45F] rounded-xl mt-10 lg:space-y-0 px-2 mx-10 overflow-hidden group'>
-
-                    <div className="absolute inset-0 bg-[linear-gradient(180deg,#142538_0%,#444542_25%,#73654C_50%,#A28556_75%,#D1A45F_100%)]
-                        opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100"></div>
-
-                    <p className='relative z-10 text-[#FFE8CC] text-[18px] lg:text-[24px] leading-[3] font-teko text-left p-6'>NEJSEM DALŠÍ PUBERTÁLNÍ SMMA AGENTURA, KTERÁ CHCE POSUNOUT TVOJE PODNIKÁNÍ</p>
-                </div>
-
-                <div className='relative shadow-[0px_4px_5px_2px_#D1A45F] rounded-xl mt-10 lg:space-y-0 px-4 mx-10 overflow-hidden group'>
-
-                    <div className="absolute inset-0 bg-[linear-gradient(180deg,#142538_0%,#444542_25%,#73654C_50%,#A28556_75%,#D1A45F_100%)]
-                        opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100"></div>
-
-                    <p className='relative z-10 text-[#FFE8CC] text-[18px] lg:text-[24px] leading-[3] font-teko text-left p-6'>PRACUJEME S MODERNÍMI TECHNOLOGIEMI PRO MAXIMÁLNÍ KVALITU NAŠICH SLUŽEB</p>
-                </div>
-            </div>
-
-            {/* TEXT REFERENCE */}
-             <div className='flex flex-col lg:flex-row lg:justify-around mt-24 justfiy-center items-center'>
-                <div className='shadow-[0px_4px_5px_2px_#D1A45F] rounded-xl mt-10 lg:space-y-0 px-4 mx-10 overflow-hidden group'>
-
-                    <p className='text-[#FFE8CC] text-[20px] lg:text-[24px] leading-[4] font-teko text-center px-20 lg:px-28 py-12'>
-                        TEXT REFERENCE 1
-                        </p>
-                </div>
-
-                <div className='shadow-[0px_4px_5px_2px_#D1A45F] rounded-xl mt-10 lg:space-y-0 px-2 mx-10 overflow-hidden group'>
-
-                    <p className=' text-[#FFE8CC] text-[20px] lg:text-[24px] leading-[4] font-teko text-center px-20 lg:px-28 py-12'>
-                        TEXT REFERENCE 2
-                        </p>
-                </div>
-
-                <div className='shadow-[0px_4px_5px_2px_#D1A45F] rounded-xl mt-10 lg:space-y-0 px-4 mx-10 overflow-hidden group'>
-
-                    <p className='text-[#FFE8CC] text-[20px] lg:text-[24px] leading-[4] font-teko text-center px-20 lg:px-28 py-12'>
-                        TEXT REFERENCE 3
-                        </p>
-                </div>
-            </div>
-        </div>
-    </div>
-  )
-}
-
-export default WhyUs
+export default WhyUs;

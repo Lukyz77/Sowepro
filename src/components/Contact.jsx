@@ -1,54 +1,126 @@
-import React from 'react'
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Mail, MapPin, Phone } from 'lucide-react';
 
 const Contact = () => {
   return (
-    <div id='contact'>
-        <h1 className='text-[#FFE8CC] text-[38px] lg:text-[44px] font-teko font-bold mt-52 text-center px-10'>POJĎME SI ZVOLIT SOWEPRO</h1>
-        <p className='text-[#FFE8CC] text-[20px] font-teko font-bold mt-24 text-center px-10'>BOOKNI SI KONZULTACI ZDARMA A PROBEREME TVŮJ PROJEKT</p>
+    <section
+      id="contact"
+      className="relative bg-[#0f1a28] text-[#FFE8CC] py-20 md:py-28 px-6 overflow-hidden"
+    >
+      <div className="max-w-6xl mx-auto text-center mb-14">
+        <motion.h2
+          className="text-4xl md:text-5xl font-teko font-semibold mb-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          Kontaktujte <span className="text-[#D1A45F]">nás</span>
+        </motion.h2>
+        <motion.p
+          className="text-[#FFE8CC]/70 max-w-2xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          viewport={{ once: true }}
+        >
+          Bookni si konzultaci zdarma a probereme tvůj projekt
+        </motion.p>
+      </div>
 
-        <div className=''>
-            <form action="submit" className='
-            flex flex-col space-y-16 mt-24 px-10 lg:px-0 
-            justify-center items-center mx-auto 
-            
-            '>
-                <input type="text" placeholder='JMÉNO' required 
-                className='
-                    bg-transparent shadow-[0px_5px_5px_2px_#5E8F8B] placeholder:text-[#FFE8CC] placeholder:font-teko 
-                    placeholder:font-bold placeholder:text-center placeholder:text-[24px] lg:placeholder:text-[30px] px-6 py-4 rounded-2xl
-                    text-white text-lg focus:outline-none focus:shadow-[0px_0px_5px_2px_#D1A45F] 
-                    focus:placeholder:text-transparent transition-all duration-200 w-80
-                    '/>
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-start">
+        {/* FORMULÁŘ */}
+        <motion.form
+          className="bg-[#142538] border border-[#D1A45F]/20 rounded-2xl p-8 flex flex-col gap-6 shadow-lg"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+        >
+          <div>
+            <label className="block text-sm text-[#FFE8CC]/70 mb-2">Jméno</label>
+            <input
+              type="text"
+              placeholder="Vaše jméno"
+              className="w-full bg-[#0f1a28] text-[#FFE8CC] rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#D1A45F]/50 transition-all"
+              required
+            />
+          </div>
 
-                <input type="text" placeholder='PŘÍJMENÍ' required 
-                className='
-                    bg-transparent shadow-[0px_5px_5px_2px_#5E8F8B] placeholder:text-[#FFE8CC] placeholder:font-teko 
-                    placeholder:font-bold placeholder:text-center placeholder:text-[24px] lg:placeholder:text-[30px] px-6 py-4 rounded-2xl
-                    text-white text-lg focus:outline-none focus:shadow-[0px_0px_5px_2px_#D1A45F] 
-                    focus:placeholder:text-transparent transition-all duration-200 w-80
-                    '/>
+          <div>
+            <label className="block text-sm text-[#FFE8CC]/70 mb-2">E-mail</label>
+            <input
+              type="email"
+              placeholder="Váš e-mail"
+              className="w-full bg-[#0f1a28] text-[#FFE8CC] rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#D1A45F]/50 transition-all"
+              required
+            />
+          </div>
 
-                <input type="email" placeholder='EMAIL' required 
-                className='
-                    bg-transparent shadow-[0px_5px_5px_2px_#5E8F8B] placeholder:text-[#FFE8CC] placeholder:font-teko 
-                    placeholder:font-bold placeholder:text-center placeholder:text-[24px] lg:placeholder:text-[30px] px-6 py-4 rounded-2xl
-                    text-white text-lg focus:outline-none focus:shadow-[0px_0px_5px_2px_#D1A45F] 
-                    focus:placeholder:text-transparent transition-all duration-200 w-80
-                    '/>
+          <div>
+            <label className="block text-sm text-[#FFE8CC]/70 mb-2">Zpráva</label>
+            <textarea
+              placeholder="Vaše zpráva..."
+              rows="5"
+              className="w-full bg-[#0f1a28] text-[#FFE8CC] rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#D1A45F]/50 transition-all resize-none"
+              required
+            ></textarea>
+          </div>
 
-                <div className="flex justify-center items-center">
-                    <button type='submit' className="relative overflow-hidden mt-16 font-teko px-4 py-6 text-xl rounded-3xl transition-all duration-500 ease-in-out group hover:shadow-[4px_4px_5px_2px_#D1A45F]">
-                        <span className="relative z-10 transition-colors duration-500 ease-in-out text-[#0f1f33] group-hover:text-[#5E8F8B]">
-                            VOLÍM SI SOWEPRO
-                        </span>
-                        <span className="absolute inset-0 rounded-3xl bg-[linear-gradient(90deg,#D1A45F_0%,#A28556_50%,#D1A45F_100%)] transition-opacity duration-500 ease-in-out opacity-100 group-hover:opacity-0"></span>
-                        <span className="absolute inset-0 rounded-3xl bg-[#142538] transition-opacity duration-500 ease-in-out opacity-0 group-hover:opacity-100"></span>
-                    </button>
+          <motion.button
+            type="submit"
+            className="bg-[#D1A45F] text-[#142538] font-medium rounded-full py-3 mt-2 hover:bg-[#b98a50] transition-colors duration-300"
+            whileTap={{ scale: 0.97 }}
+          >
+            Odeslat zprávu
+          </motion.button>
+        </motion.form>
+
+        {/* KONTAKTNÍ INFO */}
+        <motion.div
+          className="flex flex-col justify-center bg-[#142538] border border-[#D1A45F]/20 rounded-2xl p-8 shadow-lg space-y-6"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <h3 className="text-2xl font-teko font-semibold mb-4 text-[#D1A45F]">
+            Kontaktní údaje
+          </h3>
+
+          <div className="flex items-center gap-4">
+            <Mail className="text-[#D1A45F]" />
+            <div>
+              <p className="text-[#FFE8CC]/60 text-sm">E-mail</p>
+              <p className="text-[#FFE8CC] font-medium">info@sowepro.cz</p>
             </div>
-            </form>
-        </div>
-    </div>
-  )
-}
+          </div>
 
-export default Contact
+          <div className="flex items-center gap-4">
+            <Phone className="text-[#D1A45F]" />
+            <div>
+              <p className="text-[#FFE8CC]/60 text-sm">Telefon</p>
+              <p className="text-[#FFE8CC] font-medium">+420 777 123 456</p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <MapPin className="text-[#D1A45F]" />
+            <div>
+              <p className="text-[#FFE8CC]/60 text-sm">Adresa</p>
+              <p className="text-[#FFE8CC] font-medium">Praha, Česká republika</p>
+            </div>
+          </div>
+
+          <p className="text-[#FFE8CC]/70 text-sm mt-6 leading-relaxed">
+            Jsme tu pro vás každý pracovní den.  
+            Dejte nám vědět, jak vám můžeme pomoci – rádi se s vámi spojíme.
+          </p>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default Contact;

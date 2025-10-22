@@ -1,76 +1,133 @@
-import Logo from '../assets/Logo - single.png'
-import { FiMenu, FiX } from 'react-icons/fi'
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import Logo from '../assets/Logo - single.png';
 
 const Navbar = () => {
-    const [menuOpen, setMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [hasShadow, setHasShadow] = useState(false);
 
-    const toggleMenu = () => setMenuOpen(!menuOpen);
+  // Zablokování scrollování při otevřeném menu
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+    return () => (document.body.style.overflow = 'auto');
+  }, [isOpen]);
 
-    useEffect(() => {
-        if (menuOpen) {
-            document.body.style.overflow = 'hidden';
-        } 
-        else {
-            document.body.style.overflow = 'auto';
-        }
+  // Přidání stínu při scrollování
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setHasShadow(true);
+      } else {
+        setHasShadow(false);
+      }
+    };
 
-        // Vyčistit po odpojení komponenty
-        return () => {
-            document.body.style.overflow = 'auto';
-        };
-    }, [menuOpen]);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-        <div className="">
-            <div className="relative mx-auto mt-7 flex items-center justify-between px-10 py-6">
-                
-                {/* Logo */}
-                <div className="flex items-center lg:ml-5">
-                    <img src={Logo} alt="Sowepro" className="w-20 h-30 lg:w-20 lg:h-20" />
-                </div>
+    <>
+      {/* Hlavní navbar */}
+      <motion.nav
+        className={`fixed top-0 left-0 w-full z-50 backdrop-blur-md transition-all duration-300 ${
+          hasShadow ? 'bg-[#0f1c2b]/60 shadow-2xl' : 'bg-transparent'
+        }`}
+        initial={{ y: -20 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          {/* Logo */}
+          <div className="flex items-center lg:ml-5">
+            <img
+              src={Logo}
+              alt="Sowepro"
+              className="w-15 h-20"
+            />
+          </div>
 
-                <div className='md:hidden flex items-center'>
-                    {menuOpen 
-                        ? (<FiX className="text-5xl text-white md:hidden cursor-pointer z-[60]" onClick={ toggleMenu }/>)
-                        : (<FiMenu className="text-5xl text-white md:hidden cursor-pointer z-[60]" onClick={ toggleMenu }/>)}
-                </div>
+          {/* Desktop menu */}
+          <ul className="hidden md:flex items-center gap-8 text-[#FFE8CC] text-lg font-medium">
+            <li>
+              <a href="#about" className="hover:text-[#D1A45F] transition-colors duration-300">
+                O nás
+              </a>
+            </li>
+            <li>
+              <a href="#services" className="hover:text-[#D1A45F] transition-colors duration-300">
+                Služby
+              </a>
+            </li>
+            <li>
+              <a href="#whyus" className="hover:text-[#D1A45F] transition-colors duration-300">
+                Proč my
+              </a>
+            </li>
+            <li>
+              <a href="#portfolio" className="hover:text-[#D1A45F] transition-colors duration-300">
+                Portfolio
+              </a>
+            </li>
+            <li>
+              <a href="#contact" className="hover:text-[#D1A45F] transition-colors duration-300">
+                Kontakt
+              </a>
+            </li>
+          </ul>
 
-                <div
-                    className={`fixed top-0 right-0 h-full w-full bg-[linear-gradient(135deg,#D1A45F_0%,#A28556_50%,#D1A45F_100%)]
-                                flex flex-col items-center justify-center space-y-8 transform transition-transform duration-500 ease-in-out
-                                ${menuOpen ? 'translate-x-0' : 'translate-x-full'} z-50`}
-                    >
-                    <a href="#about" className="text-[#142538] text-4xl font-teko uppercase tracking-widest hover:opacity-70 transition-all" onClick={toggleMenu}>O nás</a>
-                    <a href="#services" className="text-[#142538] text-4xl font-teko uppercase tracking-widest hover:opacity-70 transition-all" onClick={toggleMenu}>Služby</a>
-                    <a href="#portfolio" className="text-[#142538] text-4xl font-teko uppercase tracking-widest hover:opacity-70 transition-all" onClick={toggleMenu}>Portfolio</a>
-                    <a href="#contact" className="text-[#142538] text-4xl font-teko uppercase tracking-widest hover:opacity-70 transition-all" onClick={toggleMenu}>Kontakt</a>
-                </div>
-
-                {/* Navigace */}
-                <nav className="hidden md:flex ml-20 items-center justify-center flex-1">
-                    <div className="flex gap-5 px-5 py-4 rounded-2xl bg-[linear-gradient(90deg,#444542_0%,#A28556_50%,#D1A45F_100%)]">
-                        <a href="#about" className="text-[#f9eed8] text-2xl font-teko tracking-wide uppercase hover:opacity-80 transition text-md">O nás</a>
-                        <a href="#services" className="text-[#f9eed8] text-2xl font-teko tracking-wide uppercase hover:opacity-80 transition text-md">Služby</a>
-                        <a href="#portfolio" className="text-[#f9eed8] text-2xl text-2xl font-teko tracking-wide uppercase hover:opacity-80 transition text-md">Portfolio</a>
-                        <a href="#contact" className="text-[#f9eed8] text-2xl font-teko tracking-wide uppercase hover:opacity-80 transition text-md">Kontakt</a>
-                    </div>
-                </nav>
-
-                {/* CTA */}
-                <div className="hidden md:flex items-center">
-                   <button className="relative overflow-hidden ml-6 font-teko px-4 py-5 rounded-3xl transition-all duration-500 ease-in-out group hover:shadow-[4px_4px_5px_2px_#D1A45F]">
-                        <span className="relative z-10 transition-colors duration-500 ease-in-out text-[#0f1f33] text-xl group-hover:text-[#5E8F8B]">
-                            VOLÍM SI SOWEPRO
-                        </span>
-                        <span className="absolute inset-0 rounded-3xl bg-[linear-gradient(90deg,#D1A45F_0%,#A28556_50%,#D1A45F_100%)] transition-opacity duration-500 ease-in-out opacity-100 group-hover:opacity-0"></span>
-                        <span className="absolute inset-0 rounded-2xl bg-[#142538] transition-opacity duration-500 ease-in-out opacity-0 group-hover:opacity-100"></span>
-                    </button>
-                </div>
-            </div>
+          {/* Mobile toggle */}
+          <button
+            className="md:hidden text-[#FFE8CC] z-50"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X size={30} /> : <Menu size={30} />}
+          </button>
         </div>
+      </motion.nav>
 
-  )
-}
+      {/* Fullscreen mobile menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            key="mobile-menu"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6 }}
+            className="fixed inset-0 z-40 bg-[#0f1c2b]/90 backdrop-blur-xl flex flex-col justify-center items-center"
+          >
+            <ul className="flex flex-col items-center gap-10 text-[#FFE8CC] text-2xl font-medium">
+              <motion.li whileHover={{ scale: 1.1 }}>
+                <a href="#about" onClick={() => setIsOpen(false)}>O nás</a>
+              </motion.li>
+              <motion.li whileHover={{ scale: 1.1 }}>
+                <a href="#services" onClick={() => setIsOpen(false)}>Služby</a>
+              </motion.li>
+              <motion.li whileHover={{ scale: 1.1 }}>
+                <a href="#whyus" onClick={() => setIsOpen(false)}>Proč my</a>
+              </motion.li>
+              <motion.li whileHover={{ scale: 1.1 }}>
+                <a href="#portfolio" onClick={() => setIsOpen(false)}>Portfolio</a>
+              </motion.li>
+              <motion.li whileHover={{ scale: 1.1 }}>
+                <a href="#contact" onClick={() => setIsOpen(false)}>Kontakt</a>
+              </motion.li>
+            </ul>
 
-export default Navbar
+            {/* Zavírací tlačítko (vpravo nahoře) */}
+            <button
+              onClick={() => setIsOpen(false)}
+              className="absolute top-6 right-6 text-[#D1A45F]"
+            >
+              <X size={32} />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+};
+
+export default Navbar;
