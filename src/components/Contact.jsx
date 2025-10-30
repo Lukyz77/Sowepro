@@ -93,7 +93,7 @@ const Contact = () => {
             <Mail className="text-[#D1A45F]" />
             <div>
               <p className="text-[#FFE8CC]/60 text-sm">E-mail</p>
-              <p className="text-[#FFE8CC] font-medium">info@sowepro.cz</p>
+              <p className="text-[#FFE8CC] font-medium">koncept.sowepro@gmail.com</p>
             </div>
           </div>
 
@@ -101,7 +101,7 @@ const Contact = () => {
             <Phone className="text-[#D1A45F]" />
             <div>
               <p className="text-[#FFE8CC]/60 text-sm">Telefon</p>
-              <p className="text-[#FFE8CC] font-medium">+420 777 123 456</p>
+              <p className="text-[#FFE8CC] font-medium">+420 123 456 678</p>
             </div>
           </div>
 
@@ -109,7 +109,7 @@ const Contact = () => {
             <MapPin className="text-[#D1A45F]" />
             <div>
               <p className="text-[#FFE8CC]/60 text-sm">Adresa</p>
-              <p className="text-[#FFE8CC] font-medium">Praha, Česká republika</p>
+              <p className="text-[#FFE8CC] font-medium">Hradec Králové, Česká republika</p>
             </div>
           </div>
 
