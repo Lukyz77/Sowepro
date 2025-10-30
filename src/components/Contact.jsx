@@ -10,13 +10,13 @@ const Contact = () => {
     >
       <div className="max-w-6xl mx-auto text-center mb-14">
         <motion.h2
-          className="text-4xl md:text-5xl font-teko font-semibold mb-4"
+          className="text-4xl md:text-5xl font-teko font-semibold mb-4 uppercase"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          Kontaktujte <span className="text-[#D1A45F]">nás</span>
+          Pojďme si zvolit <span className="text-[#D1A45F]">Sowepro</span>
         </motion.h2>
         <motion.p
           className="text-[#FFE8CC]/70 max-w-2xl mx-auto"
@@ -113,10 +113,10 @@ const Contact = () => {
             </div>
           </div>
 
-          <p className="text-[#FFE8CC]/70 text-sm mt-6 leading-relaxed">
+          {/* <p className="text-[#FFE8CC]/70 text-sm mt-6 leading-relaxed">
             Jsme tu pro vás každý pracovní den.  
             Dejte nám vědět, jak vám můžeme pomoci – rádi se s vámi spojíme.
-          </p>
+          </p> */}
         </motion.div>
       </div>
     </section>

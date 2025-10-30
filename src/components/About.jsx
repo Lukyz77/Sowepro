@@ -33,8 +33,8 @@ const About = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-teko font-semibold mb-6">
-            O <span className="text-[#D1A45F]">Sowepro</span>
+          <h2 className="text-4xl md:text-5xl font-teko font-semibold mb-6 uppercase">
+            O <span className="text-[#D1A45F]">Nás</span>
           </h2>
           <p className="text-[#FFE8CC]/80 leading-relaxed mb-6 max-w-lg mx-auto md:mx-0">
             Jsme mladý tým, který spojuje kreativitu s nejmodernější technologií..

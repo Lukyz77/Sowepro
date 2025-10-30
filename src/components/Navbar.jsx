@@ -98,7 +98,7 @@ const Navbar = () => {
             transition={{ duration: 0.6 }}
             className="fixed inset-0 z-40 bg-[#0f1c2b]/90 backdrop-blur-xl flex flex-col justify-center items-center"
           >
-            <ul className="flex flex-col items-center gap-10 text-[#FFE8CC] text-2xl font-medium">
+            <ul className="flex flex-col items-center gap-10 text-[#FFE8CC] text-4xl font-medium">
               <motion.li whileHover={{ scale: 1.1 }}>
                 <a href="#about" onClick={() => setIsOpen(false)}>O nás</a>
               </motion.li>

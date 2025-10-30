@@ -1,18 +1,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Goal, Users, Sparkles } from 'lucide-react';
+import { ShieldCheck, Goal, Zap, Sparkles } from 'lucide-react';
 
 const WhyUs = () => {
   const reasons = [
     {
       icon: <Goal size={36} />,
-      title: 'Cíl a klient',
+      title: 'Jasný cíl',
       text: 'Náš cíl je výsledek, netočíme trendy, točíme video podle toho, co je cílem klienta',
     },
     {
-      icon: <Users size={36} />,
-      title: 'Individuální přístup',
-      text: 'Ke každému klientovi přistupujeme osobně. Nasloucháme vašim potřebám a společně hledáme ideální řešení.',
+      icon: <Zap size={36} />,
+      title: 'Děláme to jinak',
+      text: 'Nejsme další pubertální SMMA agentura. který chce posunout tvoje podnikání.',
     },
     {
       icon: <Sparkles size={36} />,
@@ -29,13 +29,13 @@ const WhyUs = () => {
     >
       <div className="max-w-7xl mx-auto text-center mb-14">
         <motion.h2
-          className="text-4xl md:text-5xl font-teko font-semibold mb-4"
+          className="text-4xl md:text-5xl font-teko font-semibold mb-4 uppercase"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          Proč <span className="text-[#D1A45F]">Sowepro</span>?
+          Proč si Vybrat <span className="text-[#D1A45F]">Nás</span>?
         </motion.h2>
         <motion.p
           className="text-[#FFE8CC]/70 max-w-2xl mx-auto"

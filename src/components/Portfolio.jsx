@@ -1,14 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import NextVision from '../assets/NextVision.png';
+
+
 
 const Portfolio = () => {
   const projects = [
-    { title: 'Video 1', },
-    { title: 'Video 2', },
-    { title: 'Video 3', },
-    { title: 'Web 1', },
-    { title: 'Web 2', },
-    { title: 'Web ', },
+    { title: 'Video 1', type: "video"},
+    { title: 'Video 2', type: "video"},
+    { title: 'Video 3', type: "video" },
+    { title: 'NextVision', type: "web", image: NextVision, href: 'https://nextvision.vercel.app/' },
+    { title: 'Web 2', type: "web" },
+    { title: 'Web 3', type: "web" },
   ];
 
   return (
@@ -18,13 +21,13 @@ const Portfolio = () => {
     >
       <div className="max-w-7xl mx-auto text-center mb-16">
         <motion.h2
-          className="text-4xl md:text-5xl font-teko font-semibold mb-4"
+          className="text-4xl md:text-5xl font-teko font-semibold mb-4 uppercase"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          Naše <span className="text-[#D1A45F]">Portfolio</span>
+          Nevěříte <span className="text-[#D1A45F]">Přesvědčete se</span>
         </motion.h2>
         <motion.p
           className="text-[#FFE8CC]/70 max-w-2xl mx-auto"
@@ -53,10 +56,15 @@ const Portfolio = () => {
               alt={project.title}
               className="w-full h-64 object-cover transform group-hover:scale-105 transition-all duration-500"
             />
-            <div className="absolute inset-0 bg-[#D1A45F]/10 group-hover:bg-[#D1A45F]/40 transition-all duration-500 flex items-center justify-center">
-              <h3 className="text-2xl font-teko font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white drop-shadow-md">
-                {project.title}
-              </h3>
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#D1A45F]/0 via-[#D1A45F]/25 to-[#D1A45F]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out flex items-center justify-center">
+              <a
+                href="https://nextvision.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xl font-teko px-10 py-3 bg-gradient-to-r from-[#D1A45F] to-[#b98a50] rounded-3xl font-semibold opacity-0 group-hover:opacity-100 transition-all duration-500 text-[#142538] drop-shadow-md hover:brightness-110"
+              >
+                { project.type == "web" ? "Celý web" : "Přehrát video" }
+              </a>
             </div>
           </motion.div>
         ))}
