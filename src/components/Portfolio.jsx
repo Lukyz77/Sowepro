@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import NextVision from '../assets/NextVision.png';
+import JanNovak from '../assets/JanNovak.png';
 
 
 
@@ -10,7 +11,7 @@ const Portfolio = () => {
     { title: 'Video 2', type: "video"},
     { title: 'Video 3', type: "video" },
     { title: 'NextVision', type: "web", image: NextVision, href: 'https://nextvision.vercel.app/' },
-    { title: 'Web 2', type: "web" },
+    { title: 'JanNovak', type: "web", image: JanNovak, href: 'https://jannovak.vercel.app/' },
     { title: 'Web 3', type: "web" },
   ];
 
@@ -58,7 +59,7 @@ const Portfolio = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-[#D1A45F]/0 via-[#D1A45F]/25 to-[#D1A45F]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out flex items-center justify-center">
               <a
-                href="https://nextvision.vercel.app/"
+                href={project.href || "#"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-xl font-teko px-10 py-3 bg-gradient-to-r from-[#D1A45F] to-[#b98a50] rounded-3xl font-semibold opacity-0 group-hover:opacity-100 transition-all duration-500 text-[#142538] drop-shadow-md hover:brightness-110"
