@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import NextVision from '../assets/NextVision.png';
 import JanNovak from '../assets/JanNovak.png';
+import Brewly from '../assets/Brewly.png';
 
 
 
@@ -12,7 +13,7 @@ const Portfolio = () => {
     { title: 'Video 3', type: "video" },
     { title: 'NextVision', type: "web", image: NextVision, href: 'https://nextvision.vercel.app/' },
     { title: 'JanNovak', type: "web", image: JanNovak, href: 'https://jannovak.vercel.app/' },
-    { title: 'Web 3', type: "web" },
+    { title: 'Brewly', type: "web", image: Brewly, href: 'https://brewly-ilustration.vercel.app/' },
   ];
 
   return (
