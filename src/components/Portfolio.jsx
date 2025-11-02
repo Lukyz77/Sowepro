@@ -6,7 +6,7 @@ import JanNovak from '../assets/JanNovak.png';
 import Brewly from '../assets/Brewly.png';
 
 import Video1 from '../assets/Video_1.mp4';
-import Video2 from '../assets/Video_2.mp4';
+// import Video2 from '../assets/Video_2.mp4';
 import Video3 from '../assets/Video_3.mov';
 
 import Thumbnail1 from '../assets/thumbnail1.png';
@@ -26,7 +26,7 @@ const Portfolio = () => {
 
   const projects = [
     { title: 'Video 1', type: 'video', image: Thumbnail1, src: Video1 },
-    { title: 'Video 2', type: 'video', image: Thumbnail2, src: Video2 },
+   { title: 'Video 2', type: 'video', image: Thumbnail2 },
     { title: 'Video 3', type: 'video', image: Thumbnail3, src: Video3 },
     { title: 'NextVision', type: 'web', image: NextVision, href: 'https://nextvision.vercel.app/' },
     { title: 'JanNovak', type: 'web', image: JanNovak, href: 'https://jannovak.vercel.app/' },
