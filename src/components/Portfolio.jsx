@@ -56,8 +56,7 @@ const Portfolio = () => {
           transition={{ duration: 0.8, delay: 0.1 }}
           viewport={{ once: true }}
         >
-          Ukázky našich projektů – od firemních webů po moderní prezentační stránky.
-          Postupně budeme přidávat další ukázky.
+          Ukázky našich projektů – od firemních webů po moderní prezentační stránky a videa.
         </motion.p>
       </div>
 
@@ -104,7 +103,7 @@ const Portfolio = () => {
       </div>
 
       {/* Tlačítko dole */}
-      <div className="text-center mt-16">
+      {/* <div className="text-center mt-16">
         <motion.button
           className="bg-[#D1A45F] text-[#142538] px-8 py-3 rounded-full font-medium hover:bg-[#b98a50] transition-colors duration-300"
           initial={{ opacity: 0, y: 20 }}
@@ -114,7 +113,7 @@ const Portfolio = () => {
         >
           Zobrazit více projektů
         </motion.button>
-      </div>
+      </div> */}
 
       {/* Modal s videem */}
       <AnimatePresence>

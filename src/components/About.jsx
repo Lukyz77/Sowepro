@@ -45,7 +45,7 @@ const About = () => {
           </p>
 
           <p className="text-[#FFE8CC]/70 leading-relaxed mb-8 max-w-lg mx-auto md:mx-0">
-              Z tvých sítí a webu uděláme profesionální vizitku, která zaujme a prodá.“
+              Z tvých sítí a webu uděláme profesionální vizitku, která zaujme a prodá.
           </p>
 
           <motion.a

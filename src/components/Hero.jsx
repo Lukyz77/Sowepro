@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 const Hero = () => {
   return (
     <section
-      id="home"
       className="relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-24 md:pt-32 overflow-hidden bg-[#142538]"
     >
       {/* Jemný světelný přechod v pozadí */}
@@ -23,7 +22,7 @@ const Hero = () => {
           ZVOL SI <span className="text-[#D1A45F]">SOWEPRO</span> A VYSTUP Z DAVU
         </h1>
         <p className="text-sm md:text-md text-[#FFE8CC]/80 max-w-2xl mx-auto mb-16">
-          Váše značka je hlavní hvězda a my mu dodáme příběh. <br/>
+          Vaše značka je hlavní hvězda a my ji dodáme příběh. <br/>
           Tvoříme videa, weby a fotky, které pomůžou Vaší firmě vystoupit z davu konkurence.
         </p>
 
@@ -39,7 +38,7 @@ const Hero = () => {
 
       {/* Jemná pohyblivá animace v pozadí */}
       <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[#D1A45F]/60 text-sm select-none"
+        className="absolute bottom-10 left-2/2 -translate-x-1/2 text-[#D1A45F]/60 text-sm select-none"
         animate={{ y: [0, 8, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
       >

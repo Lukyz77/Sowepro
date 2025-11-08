@@ -7,12 +7,12 @@ const WhyUs = () => {
     {
       icon: <Goal size={36} />,
       title: 'Jasný cíl',
-      text: 'Náš cíl je výsledek, netočíme trendy, točíme video podle toho, co je cílem klienta',
+      text: 'Točíme videa naservírovaná přesně pro Vaši značku a vaše klienty',
     },
     {
       icon: <Zap size={36} />,
       title: 'Děláme to jinak',
-      text: 'Nejsme další pubertální SMMA agentura. který chce posunout tvoje podnikání.',
+      text: 'Nejsme další parta kluků s laptopem. Jsme tým, co dodává výsledky.',
     },
     {
       icon: <Sparkles size={36} />,

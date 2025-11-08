@@ -80,7 +80,7 @@ const Footer = () => {
         transition={{ duration: 0.8, delay: 0.3 }}
         viewport={{ once: true }}
       >
-        © {new Date().getFullYear()} Sowepro — Všechna práva vyhrazena. <br/>IČO 0123456789
+        © {new Date().getFullYear()} Sowepro — Všechna práva vyhrazena. <br/>IČO 23583681
       </motion.div>
     </footer>
   );

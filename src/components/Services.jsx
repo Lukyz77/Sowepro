@@ -47,7 +47,7 @@ const Services = () => {
           viewport={{ once: true }}
         >
           Zaměřujeme se na tvorbu kvalitních webových řešení, která zanechají
-          silný dojem a pomohou vaší značce růst online.
+          silný dojem a pomohou Vaší značce růst online.
         </motion.p>
       </div>
 

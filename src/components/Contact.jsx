@@ -1,8 +1,38 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Phone } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+  const form = useRef();
+  const [isSending, setIsSending] = useState(false);
+  const [statusMessage, setStatusMessage] = useState('');
+
+  // const sendEmail = (e) => {
+  //   e.preventDefault();
+  //   setIsSending(true);
+
+  //   emailjs
+  //     .sendForm(
+  //       'service_6fhgn3s',     // 🔹 Service ID (např. service_2gh7n5d)
+  //       'template_akediul',    // 🔹 Template ID (např. template_41lkxpt)
+  //       form.current,
+  //       'w-V7hb8Z5H8RObZlL'       // 🔹 Public Key (např. tVZ8y3rZbYQwe1g8N)
+  //     )
+  //     .then(
+  //       () => {
+  //         setStatusMessage('✅ Zpráva byla úspěšně odeslána!');
+  //         setIsSending(false);
+  //         form.current.reset();
+  //       },
+  //       (error) => {
+  //         console.error('Chyba při odesílání:', error.text);
+  //         setStatusMessage('❌ Došlo k chybě při odesílání. Zkuste to znovu.');
+  //         setIsSending(false);
+  //       }
+  //     );
+  // };
+
   return (
     <section
       id="contact"
@@ -32,6 +62,8 @@ const Contact = () => {
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-start">
         {/* FORMULÁŘ */}
         <motion.form
+          ref={form}
+          onSubmit={sendEmail}
           className="bg-[#142538] border border-[#D1A45F]/20 rounded-2xl p-8 flex flex-col gap-6 shadow-lg"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -42,6 +74,7 @@ const Contact = () => {
             <label className="block text-sm text-[#FFE8CC]/70 mb-2">Jméno</label>
             <input
               type="text"
+              name="user_name" // 🔹 musí odpovídat {{user_name}} v EmailJS šabloně
               placeholder="Vaše jméno"
               className="w-full bg-[#0f1a28] text-[#FFE8CC] rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#D1A45F]/50 transition-all"
               required
@@ -52,6 +85,7 @@ const Contact = () => {
             <label className="block text-sm text-[#FFE8CC]/70 mb-2">E-mail</label>
             <input
               type="email"
+              name="user_email" // 🔹 odpovídá {{user_email}}
               placeholder="Váš e-mail"
               className="w-full bg-[#0f1a28] text-[#FFE8CC] rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#D1A45F]/50 transition-all"
               required
@@ -61,6 +95,7 @@ const Contact = () => {
           <div>
             <label className="block text-sm text-[#FFE8CC]/70 mb-2">Zpráva</label>
             <textarea
+              name="message" // 🔹 odpovídá {{message}}
               placeholder="Vaše zpráva..."
               rows="5"
               className="w-full bg-[#0f1a28] text-[#FFE8CC] rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#D1A45F]/50 transition-all resize-none"
@@ -70,11 +105,18 @@ const Contact = () => {
 
           <motion.button
             type="submit"
-            className="bg-[#D1A45F] text-[#142538] font-medium rounded-full py-3 mt-2 hover:bg-[#b98a50] transition-colors duration-300"
+            disabled={isSending}
+            className={`bg-[#D1A45F] text-[#142538] font-medium rounded-full py-3 mt-2 transition-colors duration-300 ${
+              isSending ? 'opacity-70 cursor-not-allowed' : 'hover:bg-[#b98a50]'
+            }`}
             whileTap={{ scale: 0.97 }}
           >
-            Odeslat zprávu
+            {isSending ? 'Odesílám...' : 'Odeslat zprávu'}
           </motion.button>
+
+          {statusMessage && (
+            <p className="text-center text-sm text-[#FFE8CC]/70 mt-2">{statusMessage}</p>
+          )}
         </motion.form>
 
         {/* KONTAKTNÍ INFO */}
@@ -93,7 +135,7 @@ const Contact = () => {
             <Mail className="text-[#D1A45F]" />
             <div>
               <p className="text-[#FFE8CC]/60 text-sm">E-mail</p>
-              <p className="text-[#FFE8CC] font-medium">koncept.sowepro@gmail.com</p>
+              <p className="text-[#FFE8CC] font-medium">info@sowepro.cz</p>
             </div>
           </div>
 
@@ -101,22 +143,9 @@ const Contact = () => {
             <Phone className="text-[#D1A45F]" />
             <div>
               <p className="text-[#FFE8CC]/60 text-sm">Telefon</p>
-              <p className="text-[#FFE8CC] font-medium">+420 123 456 678</p>
+              <p className="text-[#FFE8CC] font-medium">+420 737 704 705</p>
             </div>
           </div>
-
-          <div className="flex items-center gap-4">
-            <MapPin className="text-[#D1A45F]" />
-            <div>
-              <p className="text-[#FFE8CC]/60 text-sm">Adresa</p>
-              <p className="text-[#FFE8CC] font-medium">Hradec Králové, Česká republika</p>
-            </div>
-          </div>
-
-          {/* <p className="text-[#FFE8CC]/70 text-sm mt-6 leading-relaxed">
-            Jsme tu pro vás každý pracovní den.  
-            Dejte nám vědět, jak vám můžeme pomoci – rádi se s vámi spojíme.
-          </p> */}
         </motion.div>
       </div>
     </section>
