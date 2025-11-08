@@ -63,7 +63,7 @@ const Contact = () => {
         {/* FORMULÁŘ */}
         <motion.form
           ref={form}
-          onSubmit={sendEmail}
+          // onSubmit={sendEmail}
           className="bg-[#142538] border border-[#D1A45F]/20 rounded-2xl p-8 flex flex-col gap-6 shadow-lg"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
